@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install GraphViz
         run: sudo apt-get update && sudo apt-get install graphviz
@@ -18,14 +18,13 @@ jobs:
       - name: Build dependency tree
         run: |
           # Parse NIPs and generate .dot file
-          ls
           python parse_nips.py
 
           # Generate dependency tree image
           dot -Tpng -o tree.png tree.dot
 
       - name: Upload tree image
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: dependency-tree
           path: tree.png
