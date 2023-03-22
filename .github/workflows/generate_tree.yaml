@@ -11,9 +11,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          myToken: ${{ secrets.GITHUB_TOKEN  }}
-          view_top: 1
+
 
       - name: Install GraphViz
         run: sudo apt-get update && sudo apt-get install graphviz
@@ -33,8 +31,8 @@ jobs:
           path: tree1.png
 
       - name: Commit and push changes
-        if: steps.git-check.outputs.modified == 'true'
-        run: |
+
+        run: 
           git add .
           git config --global user.name 'Automated Publisher'
           git config --global user.email 'actions@users.noreply.github.com'
