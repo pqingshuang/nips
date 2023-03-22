@@ -28,4 +28,11 @@ jobs:
         with:
           name: dependency-tree
           path: tree1.png
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Your Name
+          author_email: mail@example.com
+          message: 'Your commit message'
+          add: 'tree1.png'
 
