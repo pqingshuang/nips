@@ -30,13 +30,9 @@ jobs:
           name: dependency-tree
           path: tree1.png
 
-      - name: Commit and push changes
-
-        run: 
-          git add .
-          git config --global user.name 'Automated Publisher'
-          git config --global user.email 'actions@users.noreply.github.com'
-          git commit -am "Commit message..."
-
-          git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
-          git push
+    - name: Commit changes
+      uses: mikeal/publish-to-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH_NAME: dependency-tree
+      
