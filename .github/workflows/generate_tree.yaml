@@ -21,7 +21,7 @@ jobs:
           python parse_nips.py
 
           # Generate dependency tree image
-          dot -Tpng -o tree.png tree1.dot
+          dot -Tpng -o tree1.png tree1.dot
 
       - name: Upload tree image
         uses: actions/upload-artifact@v3
