@@ -1,6 +1,9 @@
 import os
 import re
-
+def deleteIfExist(e,l):
+    if e in l:
+        l.remove(e)
+    return l
 # Directory containing the NIPs
 NIPS_DIR = '.'
 
@@ -12,8 +15,9 @@ graph = ['digraph {', 'rankdir=LR']
 
 # store dependencies relationship
 nip_depends = {}
-md_files = ['NIP '+f.replace(".md", "") for f in os.listdir(NIPS_DIR) if f.endswith('.md')]
-nip_nodes = list(map(lambda x: 'NIP '+x, sorted(os.listdir(NIPS_DIR))))
+md_files = [f for f in os.listdir(NIPS_DIR) if f.endswith('.md')]
+md_files.remove('README.md')
+nip_nodes = list(map(lambda x: 'NIP '+x.replace(".md", ""), sorted(md_files)))
 print(nip_nodes)
 # Read all the NIPs and extract their dependencies
 for filename in sorted(os.listdir(NIPS_DIR)):
@@ -27,7 +31,7 @@ for filename in sorted(os.listdir(NIPS_DIR)):
 
     # Extract the NIP number and title from the filename
 
-    nip_num = filename
+    nip_num = 'NIP '+filename.replace(".md", "")
     nip_title = lines[0].strip().replace('#', '').strip()
 
     # Extract the dependencies from the depends tags
@@ -43,13 +47,12 @@ for filename in sorted(os.listdir(NIPS_DIR)):
     
     # print(len(depends))
     for dep in depends:
-        print(dep.strip(),'sss')
-        nip_nodes.remove(dep.strip())
-        nip_nodes.remove(nip_num)
-        graph += ['  "{}" -> "{}";'.format(nip_num, dep.strip())]
+        deleteIfExist(dep.strip(),nip_nodes)
+        deleteIfExist(nip_num,nip_nodes)
+        graph += ['  "{}" -> "{}";'.format( dep.strip(),nip_num)]
 
 for nip_num in nip_nodes:
-    graph += ['  "{}" [label="{}"];'.format(nip_num, nip_title)]
+    graph += ['  "{}" [label="{}"];'.format(nip_num, nip_num)]
 graph.append('}')
 
 # Write the .dot file
