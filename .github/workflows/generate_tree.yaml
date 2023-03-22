@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          myToken: ${{ github.token }}
+          myToken: ${{ secrets.GITHUB_TOKEN  }}
 
       - name: Install GraphViz
         run: sudo apt-get update && sudo apt-get install graphviz
