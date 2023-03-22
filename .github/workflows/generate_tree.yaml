@@ -18,6 +18,7 @@ jobs:
       - name: Build dependency tree
         run: |
           # Parse NIPs and generate .dot file
+          ls
           python parse_nips.py
 
           # Generate dependency tree image
