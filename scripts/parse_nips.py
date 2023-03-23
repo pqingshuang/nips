@@ -8,7 +8,7 @@ def deleteIfExist(e,l):
 NIPS_DIR = '.'
 
 # Regular expression to match the depends tags
-DEPENDS_RE = re.compile(r'`depends:([^ ]+)`')
+DEPENDS_RE = re.compile(r'`depends:([^ `]+)`')
 
 # Set up the graphviz graph
 graph = ['digraph {', 'rankdir=LR']
