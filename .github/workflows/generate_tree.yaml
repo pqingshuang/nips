@@ -1,0 +1,37 @@
+name: NIP Dependency Tree
+on:
+  push:
+    branches:
+      - dependency-tree
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+
+      - name: Install GraphViz
+        run: sudo apt-get update && sudo apt-get install graphviz
+
+      - name: Build dependency tree
+        run: |
+          # Parse NIPs and generate .dot file
+          python scripts/parse_nips.py
+
+          # Generate dependency tree image
+          dot -Tpng -o scripts/tree.png scripts/tree.dot
+
+    
+      - name: Git Auto Commit
+        uses: stefanzweifel/git-auto-commit-action@v4.16.0
+        with: 
+          commit_message: update dependency tree
+      

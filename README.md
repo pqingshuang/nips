@@ -122,6 +122,8 @@ When experimenting with kinds, keep in mind the classification introduced by [NI
 4. There should be no more than one way of doing the same thing.
 5. Other rules will be made up when necessary.
 
+## NIPs dependency tree
+![image](https://github.com/pqingshuang/nips/blob/dependency-tree/scripts/tree.png)
 ## License
 
 All NIPs are public domain.
