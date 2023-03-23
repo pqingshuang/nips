@@ -1,5 +1,5 @@
 digraph {
-
+rankdir=LR
   "NIP 04" -> "NIP 07";
   "NIP 10" -> "NIP 28";
   "NIP 11" -> "NIP 28";
