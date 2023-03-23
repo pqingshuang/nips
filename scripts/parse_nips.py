@@ -56,7 +56,7 @@ for nip_num in nip_nodes:
 graph.append('}')
 
 # Write the .dot file
-with open('tree.dot', 'w') as f:
+with open('scripts/tree.dot', 'w') as f:
     f.write('\n'.join(graph))
 
 

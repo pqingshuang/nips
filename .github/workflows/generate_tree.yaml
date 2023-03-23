@@ -24,19 +24,14 @@ jobs:
       - name: Build dependency tree
         run: |
           # Parse NIPs and generate .dot file
-          python parse_nips.py
+          python scripts/parse_nips.py
 
           # Generate dependency tree image
-          dot -Tpng -o tree1.png tree1.dot
+          dot -Tpng -o scripts/tree.png scripts/tree.dot
 
-      - name: Upload tree image
-        uses: actions/upload-artifact@v3
-        with:
-          name: dependency-tree
-          path: tree1.png
     
       - name: Git Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v4.16.0
         with: 
-          commit_message: Apply php-cs-fixer changes
+          commit_message: update dependency tree
       
