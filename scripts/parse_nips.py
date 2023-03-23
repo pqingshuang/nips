@@ -11,7 +11,7 @@ NIPS_DIR = '.'
 DEPENDS_RE = re.compile(r'`depends:([^ `]+)`')
 
 # Set up the graphviz graph
-graph = ['digraph {', 'rankdir=LR']
+graph = ['digraph {', ']
 
 # store dependencies relationship
 nip_depends = {}
