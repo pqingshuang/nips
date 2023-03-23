@@ -51,8 +51,8 @@ for filename in sorted(os.listdir(NIPS_DIR)):
         deleteIfExist(nip_num,nip_nodes)
         graph += ['  "{}" -> "{}";'.format( dep.strip(),nip_num)]
 
-for nip_num in nip_nodes:
-    graph += ['  "{}" [label="{}"];'.format(nip_num, nip_num)]
+# for nip_num in nip_nodes:
+#     graph += ['  "{}" [label="{}"];'.format(nip_num, nip_num)]
 graph.append('}')
 
 # Write the .dot file
