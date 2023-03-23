@@ -2,7 +2,7 @@ name: NIP Dependency Tree
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
