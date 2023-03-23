@@ -124,6 +124,7 @@ When experimenting with kinds, keep in mind the classification introduced by [NI
 
 ## NIPs dependency tree
 ![image](https://github.com/pqingshuang/nips/blob/master/scripts/tree.png)
+
 ## License
 
 All NIPs are public domain.
