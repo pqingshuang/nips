@@ -123,7 +123,7 @@ When experimenting with kinds, keep in mind the classification introduced by [NI
 5. Other rules will be made up when necessary.
 
 ## NIPs dependency tree
-![image](https://github.com/pqingshuang/nips/blob/dependency-tree/scripts/tree.png)
+![image](https://github.com/pqingshuang/nips/blob/master/scripts/tree.png)
 ## License
 
 All NIPs are public domain.
