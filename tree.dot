@@ -3,7 +3,6 @@ rankdir=LR
   "NIP 10" -> "NIP 28";
   "NIP 11" -> "NIP 28";
   "NIP 10" -> "NIP 33";
-  "NIP 16" -> "NIP 51";
   "NIP 33" -> "NIP 51";
   "NIP 33" -> "NIP 57";
   "NIP 01" [label="NIP 01"];
